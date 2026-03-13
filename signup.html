@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Sign Up - RJ's Artisan Café</title>
+    <style>
+        body {
+            background-image: url('images/bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-md);
+        }
+
+        .signup-wrapper {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .signup-card {
+            background: var(--cream);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            overflow: hidden;
+        }
+
+        .signup-header {
+            background: linear-gradient(135deg, var(--cafe-brown) 0%, var(--cafe-light) 100%);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            color: var(--white);
+        }
+
+        .signup-header .logo {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .signup-header h1 {
+            color: var(--white);
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-serif);
+        }
+
+        .signup-header p {
+            color: var(--gold);
+            font-size: var(--font-size-lg);
+            margin: 0;
+            letter-spacing: 1px;
+        }
+
+        .signup-body {
+            padding: var(--spacing-xl);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: var(--spacing-md);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            transition: all var(--transition-base);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-light);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+        }
+
+        .btn-signup {
+            width: 100%;
+            padding: var(--spacing-md) var(--spacing-lg);
+            background: linear-gradient(135deg, var(--cafe-brown) 0%, var(--cafe-light) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: var(--font-size-lg);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            letter-spacing: 1px;
+            margin-top: var(--spacing-md);
+        }
+
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(44, 31, 23, 0.3);
+        }
+
+        .login-prompt {
+            text-align: center;
+            margin-top: var(--spacing-lg);
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .login-prompt p {
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        .login-prompt a {
+            color: var(--gold);
+            font-weight: 700;
+            transition: color var(--transition-base);
+        }
+
+        .login-prompt a:hover {
+            color: var(--cafe-brown);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .signup-header {
+                padding: var(--spacing-lg) var(--spacing-md);
+            }
+
+            .signup-body {
+                padding: var(--spacing-lg);
+            }
+
+            .signup-header .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .signup-header h1 {
+                font-size: var(--font-size-xl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-wrapper">
+        <div class="signup-card">
+            <div class="signup-header">
+                <img class="logo" src="images/h.png" alt="RJ's Artisan Café Logo">
+                <h1>RJ's Artisan Café</h1>
+                <p>Create Your Account</p>
+            </div>
+            <div class="signup-body">
+                <form action="register.php" method="POST">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" class="form-control" name="fullname" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username" placeholder="Choose a username" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input type="password" class="form-control" name="password" placeholder="Create a password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" name="confirm_password" placeholder="Confirm your password" required>
+                    </div>
+                    <button class="btn-signup" type="submit">Create Account</button>
+                </form>
+                <div class="login-prompt">
+                    <p>Already have an account? <a href="login.html">Sign In Here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

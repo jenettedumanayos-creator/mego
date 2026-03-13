@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menustyle.css">
+    <title>Mego Craft Coffee Menu</title>
+    <style>
+        .header-logout {
+            position: absolute;
+            top: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background: transparent;
+            color: var(--cream);
+            border: 2px solid var(--cream);
+            padding: 8px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .header-logout:hover {
+            background: var(--cream);
+            color: var(--cafe-brown);
+        }
+
+        .welcome-text {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-top: 15px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .footer {
+            margin-top: 80px;
+        }
+
+        @media (max-width: 600px) {
+            .header-logout {
+                position: static;
+                width: 80%;
+                margin: 15px auto 0;
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <?php
+    session_start();
+    if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'user') {
+        header("Location: login.php");
+        exit();
+    }
+    ?>
+    <header class="header-area">
+        <img src="images/image.png" alt="Mego Craft Coffee" class="logo">
+        <h1>Mego Craft Coffee</h1>
+        <p class="tagline">Make Everyday a Good One</p>
+        <p class="welcome-text">Welcome
+            <?= htmlspecialchars($_SESSION['fullname']) ?>!
+        </p>
+        <a href="logout.php" class="header-logout">Logout</a>
+    </header>
+
+    <main class="menu-grid">
+        <div class="product-container">
+            <div class="image-holder">
+                <img src="images/kape1.jpg" alt="Espresso">
+            </div>
+            <div class="product-info">
+                <h2>Espresso</h2>
+                <p><strong>Size:</strong> Single / Double Shot</p>
+                <p><strong>Notes:</strong> Dark Chocolate, Nutty</p>
+                <span class="price">₱120</span>
+            </div>
+        </div>
+
+        <div class="product-container">
+            <div class="image-holder">
+                <img src="images/kape2.jpg" alt="Cafe Latte">
+            </div>
+            <div class="product-info">
+                <h2>Cafe Latte</h2>
+                <p><strong>Size:</strong> 12oz / 16oz</p>
+                <p><strong>Milk:</strong> Steamed Silky Milk</p>
+                <span class="price">₱165</span>
+            </div>
+        </div>
+
+        <div class="product-container">
+            <div class="image-holder">
+                <img src="images/kape3.jpg" alt="Caramel Macchiato">
+            </div>
+            <div class="product-info">
+                <h2>Caramel Macchiato</h2>
+                <p><strong>Size:</strong> 16oz (Hot/Iced)</p>
+                <p><strong>Topping:</strong> Caramel Drizzle</p>
+                <span class="price">₱185</span>
+            </div>
+        </div>
+
+        <div class="product-container">
+            <div class="image-holder">
+                <img src="images/kape4.jpg" alt="Cold Brew">
+            </div>
+            <div class="product-info">
+                <h2>Cold Brew</h2>
+                <p><strong>Size:</strong> 16oz Bottled</p>
+                <p><strong>Steep:</strong> 18 Hours</p>
+                <span class="price">₱170</span>
+            </div>
+        </div>
+
+        <div class="product-container">
+            <div class="image-holder">
+                <img src="images/kape5.jpg" alt="Spanish Latte">
+            </div>
+            <div class="product-info">
+                <h2>Spanish Latte</h2>
+                <p><strong>Size:</strong> 12oz / 16oz</p>
+                <p><strong>Sweetener:</strong> Condensed Milk</p>
+                <span class="price">₱175</span>
+            </div>
+        </div>
+
+        <div class="product-container">
+            <div class="image-holder">
+                <img src="images/kape6.jpg" alt="Matcha Latte">
+            </div>
+            <div class="product-info">
+                <h2>Matcha Latte</h2>
+                <p><strong>Size:</strong> 12oz (Hot/Iced)</p>
+                <p><strong>Origin:</strong> Uji, Japan</p>
+                <span class="price">₱190</span>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer class="footer">
+        <p>Contact: 09105607132 | Visit us in Camias, Calape, Bohol</p>
+        <p style="font-size: 0.8rem; margin-top: 10px; color: var(--cafe-brown);">© 2024 RJ's Artisan Café. All rights
+            reserved.</p>
+    </footer>
+
+</body>
+
+</html>
